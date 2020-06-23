@@ -1,8 +1,21 @@
+@inject MessageService _message
+
 <div>
     Hello Your UserName @UserName
 </div>
+<Button Type="primary" OnClick="OnClick">Hello</Button>
+<Button type="Error" OnClick="OnClick">Error</Button>
+<Button Danger OnClick="OnClick">Danger</Button>
+<DatePicker Picker="@DatePickerType.Date" />
+
 
 @code{
     [Parameter]
     public string UserName { get; set; }
+
+    private void OnClick()
+    {
+        Console.WriteLine("onclick");
+        _message.Success("This is a normal message");
+    }
 }
